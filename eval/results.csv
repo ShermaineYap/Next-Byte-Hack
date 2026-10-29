@@ -1,0 +1,11 @@
+call,id,expected,level,risk,scam_type,tactics,registry_hit,warning_at_line,warning_after_s,lines,correct,engine
+"""Sergeant"" from Bukit Aman",police-bukit-aman,scam,high,0.99,Police impersonation (Macau scam),authority fabricated_offence threat_urgency secrecy money_transfer,True,7,33,9,True,rules
+LHDN tax arrears,lhdn-tax,scam,high,0.99,Tax office (LHDN) impersonation,authority threat_urgency secrecy money_transfer,True,6,37,7,True,rules
+"""Card centre"" asks for TAC",bank-tac,scam,high,0.85,Bank impersonation,threat_urgency credentials,False,5,31,6,True,rules
+Parcel held by customs,parcel-customs,scam,high,0.99,Parcel / courier scam,authority fabricated_offence threat_urgency secrecy remote_access,False,5,29,6,True,rules
+"""MCMC"": your line will be cut",mcmc-line,scam,high,0.99,Telco / MCMC impersonation,authority fabricated_offence threat_urgency secrecy money_transfer,True,4,30,5,True,rules
+Guaranteed-returns investment,investment,scam,high,0.99,Investment scam,authority threat_urgency money_transfer remote_access too_good,False,4,25,5,True,rules
+Real bank fraud-desk check,real-bank,legit,low,0.0,,,False,,,6,True,rules
+Clinic appointment reminder,clinic,legit,low,0.0,,,False,,,5,True,rules
+Delivery rider at the guardhouse,delivery,legit,low,0.0,,,False,,,5,True,rules
+Son asks for RM50 for parking,son-parking,legit,caution,0.45,,money_transfer,False,,,4,True,rules

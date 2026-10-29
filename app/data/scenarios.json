@@ -1,0 +1,153 @@
+{
+  "_note": "Scripted test calls written for this project, modelled on scam patterns described in PDRM/NSRC advisories and Malaysian news reports. All names, organisations' staff, phone and account numbers are fictitious.",
+  "scenarios": [
+    {
+      "id": "police-bukit-aman",
+      "expected": "scam",
+      "lang": "ms",
+      "title_en": "\"Sergeant\" from Bukit Aman",
+      "title_ms": "\"Sarjan\" dari Bukit Aman",
+      "lines": [
+        {"speaker": "caller", "text": "Selamat petang puan. Saya Sarjan Tan dari Ibu Pejabat Polis Bukit Aman, Jabatan Siasatan Jenayah Komersial."},
+        {"speaker": "you", "text": "Ya, ada apa encik?"},
+        {"speaker": "caller", "text": "Kami dapati nombor kad pengenalan puan telah digunakan untuk membuka akaun bank yang terlibat dalam kes pengubahan wang haram."},
+        {"speaker": "you", "text": "Hah? Saya tak pernah buka akaun lain."},
+        {"speaker": "caller", "text": "Mahkamah sudah keluarkan waran tangkap atas nama puan. Kalau puan tak bekerjasama, puan akan ditangkap dalam masa 24 jam."},
+        {"speaker": "you", "text": "Ya Allah, apa saya perlu buat?"},
+        {"speaker": "caller", "text": "Kes ini sulit. Jangan beritahu sesiapa, termasuk anak-anak puan. Jangan letak telefon."},
+        {"speaker": "caller", "text": "Untuk buktikan puan tidak bersalah, puan perlu pindahkan semua simpanan ke akaun selamat Bank Negara untuk siasatan."},
+        {"speaker": "caller", "text": "Sila catat nombor akaun ini: 7612 4409 8831. Masukkan RM48,000 hari ini juga."}
+      ]
+    },
+    {
+      "id": "lhdn-tax",
+      "expected": "scam",
+      "lang": "en",
+      "title_en": "LHDN tax arrears",
+      "title_ms": "Tunggakan cukai LHDN",
+      "lines": [
+        {"speaker": "caller", "text": "Hello, good morning. This is Encik Faizal from LHDN, Lembaga Hasil Dalam Negeri, Jalan Duta branch."},
+        {"speaker": "you", "text": "Yes, ada apa?"},
+        {"speaker": "caller", "text": "Our record shows you have tunggakan cukai of RM12,850 from year 2023. If not settled today, you will be blacklisted and your account will be frozen."},
+        {"speaker": "you", "text": "But I always pay tax on time."},
+        {"speaker": "caller", "text": "Maybe someone used your name. Saman mahkamah already issued, so you must settle immediately to stop the court case."},
+        {"speaker": "caller", "text": "Please bank in the money to our officer account, Maybank 5140 2267 9031, and WhatsApp me the receipt at 011-2876 4410."},
+        {"speaker": "caller", "text": "Don't tell your family first, this matter is confidential."}
+      ]
+    },
+    {
+      "id": "bank-tac",
+      "expected": "scam",
+      "lang": "en",
+      "title_en": "\"Card centre\" asks for TAC",
+      "title_ms": "\"Pusat kad\" minta TAC",
+      "lines": [
+        {"speaker": "caller", "text": "Hello aunty, I'm calling from CIMB credit card centre. Got one transaction RM6,900 at Lazada just now, aunty make or not?"},
+        {"speaker": "you", "text": "No lah, I never buy anything."},
+        {"speaker": "caller", "text": "OK aunty, don't worry, we will cancel it for you. Aunty will receive one SMS with TAC number now, just read the six digit code to me."},
+        {"speaker": "you", "text": "Wait ah, let me see."},
+        {"speaker": "caller", "text": "Quickly aunty, the code expire in 2 minutes. Also need your card number and the CVV behind to verify."},
+        {"speaker": "caller", "text": "If you don't give now, the transaction will go through and you lose the money."}
+      ]
+    },
+    {
+      "id": "parcel-customs",
+      "expected": "scam",
+      "lang": "ms",
+      "title_en": "Parcel held by customs",
+      "title_ms": "Bungkusan ditahan kastam",
+      "lines": [
+        {"speaker": "caller", "text": "Hello, ini panggilan dari Pos Laju. Bungkusan atas nama encik telah ditahan oleh kastam kerana mengandungi dadah dan pasport palsu."},
+        {"speaker": "you", "text": "Saya tak hantar apa-apa bungkusan pun."},
+        {"speaker": "caller", "text": "Saya akan sambungkan panggilan encik kepada pegawai polis Kuala Lumpur sekarang."},
+        {"speaker": "caller", "text": "Inspektor Rahman bercakap. Nombor telefon encik juga dikaitkan dengan sindiket ini. Encik sekarang dalam siasatan."},
+        {"speaker": "caller", "text": "Untuk elakkan encik ditangkap, muat turun aplikasi ini melalui pautan yang saya hantar supaya kami boleh semak akaun bank encik."},
+        {"speaker": "caller", "text": "Jangan bincang dengan sesiapa. Ini kes sulit."}
+      ]
+    },
+    {
+      "id": "mcmc-line",
+      "expected": "scam",
+      "lang": "en",
+      "title_en": "\"MCMC\": your line will be cut",
+      "title_ms": "\"MCMC\": talian anda akan diputuskan",
+      "lines": [
+        {"speaker": "caller", "text": "This is MCMC. Your phone line will be disconnected within 2 hours. Press 1 to speak to an officer."},
+        {"speaker": "caller", "text": "Hello sir, I'm officer Lim from MCMC. Your number was used to send scam messages and a police report was made in Sabah."},
+        {"speaker": "you", "text": "What? I never send anything."},
+        {"speaker": "caller", "text": "I will connect you to Sabah police. Sir, the police say you need to transfer RM20,000 to a safe account for verification. It will be returned after 3 days."},
+        {"speaker": "caller", "text": "Account number 8823 0045 1176, Public Bank. Please go to a room by yourself and don't hang up the phone."}
+      ]
+    },
+    {
+      "id": "investment",
+      "expected": "scam",
+      "lang": "en",
+      "title_en": "Guaranteed-returns investment",
+      "title_ms": "Pelaburan pulangan terjamin",
+      "lines": [
+        {"speaker": "caller", "text": "Hi uncle, I'm Jessica from Golden Harvest Capital. We have a special investment plan for senior citizens, guaranteed returns of 15% per month."},
+        {"speaker": "caller", "text": "Many uncles and aunties already join, very safe, approved by Bank Negara."},
+        {"speaker": "you", "text": "Sounds good, but how to join?"},
+        {"speaker": "caller", "text": "You just need to transfer RM5,000 to start, and you can withdraw anytime. But this offer only until today, last chance."},
+        {"speaker": "caller", "text": "I will send you a link, just click the link and install our app to see your profit."}
+      ]
+    },
+    {
+      "id": "real-bank",
+      "expected": "legit",
+      "lang": "en",
+      "title_en": "Real bank fraud-desk check",
+      "title_ms": "Semakan sebenar oleh bank",
+      "lines": [
+        {"speaker": "caller", "text": "Good afternoon, this is Aisyah from Maybank Fraud Monitoring. Am I speaking to Mr Lee?"},
+        {"speaker": "you", "text": "Yes, speaking."},
+        {"speaker": "caller", "text": "We noticed a card transaction of RM1,250 at an online store at 2.14 pm today. Did you make this purchase?"},
+        {"speaker": "you", "text": "Yes, that was me, I bought a new phone."},
+        {"speaker": "caller", "text": "Thank you for confirming, no further action is needed. As a reminder, Maybank will never ask you for your OTP, PIN or password, and will never ask you to transfer money to another account."},
+        {"speaker": "caller", "text": "If you ever receive such a request, please hang up and call the number on the back of your card. Have a good day."}
+      ]
+    },
+    {
+      "id": "clinic",
+      "expected": "legit",
+      "lang": "ms",
+      "title_en": "Clinic appointment reminder",
+      "title_ms": "Peringatan temujanji klinik",
+      "lines": [
+        {"speaker": "caller", "text": "Assalamualaikum, ini Klinik Kesihatan Taman Melawati. Boleh saya bercakap dengan Puan Rosnah?"},
+        {"speaker": "you", "text": "Ya, saya."},
+        {"speaker": "caller", "text": "Saya nak ingatkan temujanji pemeriksaan darah puan esok pukul 9 pagi. Sila berpuasa sejak tengah malam."},
+        {"speaker": "caller", "text": "Bawa kad pengenalan dan buku temujanji ya. Kalau tak dapat datang, boleh telefon klinik untuk tukar tarikh."},
+        {"speaker": "you", "text": "Baik, terima kasih."}
+      ]
+    },
+    {
+      "id": "delivery",
+      "expected": "legit",
+      "lang": "en",
+      "title_en": "Delivery rider at the guardhouse",
+      "title_ms": "Penghantar di pondok pengawal",
+      "lines": [
+        {"speaker": "caller", "text": "Hello, J&T delivery here. I got one parcel for you, I'm at the guardhouse now but cannot find your house."},
+        {"speaker": "you", "text": "Oh, I'm at block C, level 5."},
+        {"speaker": "caller", "text": "OK, the guard ask me to leave the parcel at the guardhouse, can or not? Or you want to come down?"},
+        {"speaker": "you", "text": "Just leave with the guard, thanks."},
+        {"speaker": "caller", "text": "OK no problem, I take photo as proof of delivery. Thank you."}
+      ]
+    },
+    {
+      "id": "son-parking",
+      "expected": "legit",
+      "lang": "en",
+      "title_en": "Son asks for RM50 for parking",
+      "title_ms": "Anak minta RM50 untuk parkir",
+      "lines": [
+        {"speaker": "caller", "text": "Ma, Wei Jie here. I'm at the hospital car park with Papa, the parking machine only takes card."},
+        {"speaker": "caller", "text": "Can you bank in RM50 to my account? I'll pay you back tonight."},
+        {"speaker": "you", "text": "Your father got no card ah?"},
+        {"speaker": "caller", "text": "Oh never mind, Papa found his card already. See you at home for dinner."}
+      ]
+    }
+  ]
+}

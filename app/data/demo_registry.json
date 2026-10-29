@@ -1,0 +1,9 @@
+{
+  "_note": "FICTITIOUS sample data for the demo only. These numbers appear in the scripted demo calls. Real lookups must be done on PDRM Semak Mule (https://semakmule.rmp.gov.my/).",
+  "entries": [
+    {"number": "7612 4409 8831", "kind": "account", "reports": 3, "category": "Police impersonation"},
+    {"number": "5140 2267 9031", "kind": "account", "reports": 4, "category": "LHDN impersonation"},
+    {"number": "011-2876 4410", "kind": "phone", "reports": 5, "category": "LHDN impersonation"},
+    {"number": "8823 0045 1176", "kind": "account", "reports": 2, "category": "Telco / MCMC impersonation"}
+  ]
+}

@@ -96,7 +96,7 @@ TACTICS: tuple[Tactic, ...] = (
         (
             r"akaun selamat", r"safe(ty)? account",
             r"\b(pindah|pindahkan|transfer|hantar|masukkan|deposit|bank[- ]?in|bayar|pay)\b.{0,40}"
-            r"\b(wang|duit|money|simpanan|savings|semua|all|rm ?\d+|ringgit|deposit|fee|yuran)\b",
+            r"\b(wang|duit|money|simpanan|savings|semua|all|rm ?\d[\d,.]*k?|ringgit|deposit|fee|yuran)\b",
             r"\b(wang|duit|money|simpanan|savings)\b.{0,30}\b(pindah|pindahkan|transfer|keluarkan|withdraw)\b",
             r"akaun (pegawai|amanah|sementara|kerajaan|bank negara|siasatan|pihak ketiga)",
             r"(trust|government|temporary|holding|escrow|investigation|third[- ]party) account",

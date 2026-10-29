@@ -11,6 +11,7 @@ from __future__ import annotations
 import base64
 import json
 import logging
+import os
 
 import httpx
 
@@ -18,7 +19,7 @@ from .rules import TACTICS
 
 log = logging.getLogger("scamshield.gemini")
 
-API_ROOT = "https://generativelanguage.googleapis.com/v1beta/models"
+API_ROOT = os.getenv("GEMINI_API_ROOT", "https://generativelanguage.googleapis.com/v1beta/models").rstrip("/")
 TACTIC_IDS = [t.id for t in TACTICS]
 
 ANALYSIS_SYSTEM_PROMPT = f"""You are ScamShield, a scam-call analyst protecting elderly people in Malaysia.

@@ -1,0 +1,12 @@
+{
+  "name": "ScamShield MY",
+  "short_name": "ScamShield",
+  "description": "Real-time phone-scam co-pilot for seniors in Malaysia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E9F0EC",
+  "theme_color": "#1B3A6B",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScamShield Reports</title>
+  <meta name="theme-color" content="#1B3A6B">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .dash { max-width: 1000px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem) 3rem; }
+    .dash h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; margin: 0.5rem 0 0.5rem; max-width: 20ch; }
+    .dash .lede { color: var(--muted); max-width: 60ch; margin: 0 0 2rem; }
+    .figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .figure strong { display: block; font-size: 2.5rem; line-height: 1.1; }
+    .figure span { color: var(--muted); }
+    .figure.danger strong { color: var(--danger); }
+    .panes { display: grid; gap: 1.5rem; }
+    @media (min-width: 860px) { .panes { grid-template-columns: 3fr 2fr; } }
+    .pane { background: #fff; border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+    .pane h2 { margin: 0 0 1rem; font-size: 1.2rem; }
+    .bars { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+    .bars .row { display: flex; justify-content: space-between; gap: 1rem; font-size: 1rem; }
+    .bars .bar { height: 12px; border-radius: 999px; background: rgba(19,35,63,0.1); margin-top: 0.3rem; overflow: hidden; }
+    .bars .bar i { display: block; height: 100%; background: var(--blue); border-radius: 999px; }
+    table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+    th, td { text-align: left; padding: 0.5rem 0.25rem; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-weight: 700; }
+    .lvl-high { color: var(--danger); font-weight: 700; }
+    .lvl-caution { color: #7a5200; font-weight: 700; }
+    .nothing { color: var(--muted); }
+  </style>
+</head>
+<body data-level="idle">
+  <header class="top">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 32 32" aria-hidden="true" class="brand-mark"><path d="M16 2 4 7v8c0 7.5 5.1 13.4 12 15 6.9-1.6 12-7.5 12-15V7L16 2Z" fill="currentColor"/><path class="tick" d="m10.5 16 4 4 7-8" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>ScamShield</span>
+    </a>
+    <a href="/">Back to the call checker</a>
+  </header>
+
+  <main class="dash">
+    <h1>What scammers are saying</h1>
+    <p class="lede">Every report comes from a senior's phone, with no recording or transcript, only the tactics used and the numbers the caller wanted money sent to. Patterns show up here hours after the first call, not weeks after the first police report.</p>
+
+    <section class="figures" id="figures"></section>
+
+    <section class="panes">
+      <div class="pane">
+        <h2>Tactics used by callers</h2>
+        <ul class="bars" id="tactics"></ul>
+      </div>
+      <div class="pane">
+        <h2>Numbers callers asked for</h2>
+        <div id="numbers"></div>
+      </div>
+      <div class="pane">
+        <h2>Scam types</h2>
+        <ul class="bars" id="types"></ul>
+      </div>
+      <div class="pane">
+        <h2>Latest reports</h2>
+        <div id="recent"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (() => {
+    const LABELS = {
+      authority: "Claims to be police, government or a regulator",
+      fabricated_offence: "Says you are linked to a crime",
+      threat_urgency: "Threats and pressure to act now",
+      secrecy: "Tells you to keep it secret",
+      money_transfer: "Asks you to move money",
+      credentials: "Asks for OTP, TAC or PIN",
+      remote_access: "Asks you to install an app or open a link",
+      too_good: "Promises prizes or guaranteed returns",
+    };
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const rm = (n) => "RM" + Math.round(n).toLocaleString("en-MY");
+    const bars = (pairs, label) => {
+      if (!pairs.length) return '<li class="nothing">No reports yet.</li>';
+      const max = Math.max(...pairs.map((p) => p[1]));
+      return pairs.map(([k, n]) => `<li><div class="row"><span>${esc(label(k))}</span><strong>${n}</strong></div><div class="bar"><i style="width:${(n / max) * 100}%"></i></div></li>`).join("");
+    };
+    const fmtNum = (d) => /^01/.test(d) ? d.replace(/^(01\d)(\d{3,4})(\d{4})$/, "$1-$2 $3") : d.replace(/(\d{4})(?=\d)/g, "$1 ");
+
+    fetch("/api/stats").then((r) => r.json()).then((s) => {
+      document.getElementById("figures").innerHTML = `
+        <div class="figure"><strong>${s.total}</strong><span>calls reported</span></div>
+        <div class="figure danger"><strong>${s.levels.high || 0}</strong><span>flagged as scams</span></div>
+        <div class="figure"><strong>${s.levels.caution || 0}</strong><span>marked "be careful"</span></div>
+        <div class="figure"><strong>${rm(s.amount_at_risk_rm)}</strong><span>asked for in flagged calls</span></div>`;
+      document.getElementById("tactics").innerHTML = bars(s.tactics, (k) => LABELS[k] || k);
+      document.getElementById("types").innerHTML = bars(s.scam_types, (k) => k);
+      document.getElementById("numbers").innerHTML = s.top_numbers.length
+        ? `<table><thead><tr><th>Number</th><th>Reports</th></tr></thead><tbody>${s.top_numbers.map(([n, c]) => `<tr><td>${esc(fmtNum(n))}</td><td>${c}</td></tr>`).join("")}</tbody></table>`
+        : '<p class="nothing">No numbers reported yet.</p>';
+      document.getElementById("recent").innerHTML = s.recent.length
+        ? `<table><thead><tr><th>When</th><th>Verdict</th><th>Type</th></tr></thead><tbody>${s.recent.map((r) => `<tr><td>${esc(new Date(r.created_at).toLocaleString("en-MY", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }))}</td><td class="lvl-${r.level}">${r.level === "high" ? "Scam" : r.level === "caution" ? "Be careful" : "Safe"}</td><td>${esc(r.scam_type || "—")}</td></tr>`).join("")}</tbody></table>`
+        : '<p class="nothing">No reports yet. Finish a call in the checker and tap "Send anonymous report".</p>';
+    }).catch(() => {
+      document.getElementById("figures").innerHTML = '<p class="nothing">Can\'t reach the server.</p>';
+    });
+  })();
+  </script>
+</body>
+</html>

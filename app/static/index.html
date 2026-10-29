@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ScamShield MY</title>
+  <meta name="description" content="Real-time phone-scam co-pilot for seniors in Malaysia.">
+  <meta name="theme-color" content="#1B3A6B">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body data-level="idle">
+  <header class="top">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 32 32" aria-hidden="true" class="brand-mark"><path d="M16 2 4 7v8c0 7.5 5.1 13.4 12 15 6.9-1.6 12-7.5 12-15V7L16 2Z" fill="currentColor"/><path class="tick" d="m10.5 16 4 4 7-8" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>ScamShield</span>
+    </a>
+    <div class="lang" role="group" aria-label="Bahasa / Language">
+      <button type="button" data-lang="ms" aria-pressed="true">BM</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="verdict" aria-live="polite" aria-atomic="true">
+      <p class="verdict-kicker" id="verdictKicker" data-i18n="idleKicker"></p>
+      <h1 class="verdict-title" id="verdictTitle" data-i18n="idleTitle"></h1>
+      <p class="verdict-body" id="verdictBody" data-i18n="idleBody"></p>
+
+      <div class="meter" id="meter" hidden>
+        <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+        <p class="meter-label"><span id="meterPct">0%</span> <span data-i18n="riskWord"></span><span id="engineBadge" class="engine"></span></p>
+      </div>
+
+      <div class="actions" id="actionsIdle">
+        <button type="button" class="big-button" id="startBtn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V22h2v-3.1a7 7 0 0 0 6-6.9h-2Z" fill="currentColor"/></svg>
+          <span data-i18n="startBtn"></span>
+        </button>
+        <p class="hint" id="modeHint"></p>
+      </div>
+
+      <div class="actions" id="actionsLive" hidden>
+        <a class="act act-primary" id="waBtn" href="#" target="_blank" rel="noopener" data-i18n="waBtn"></a>
+        <a class="act" href="tel:997" data-i18n="nsrcBtn"></a>
+        <button type="button" class="act act-quiet" id="stopBtn" data-i18n="stopBtn"></button>
+      </div>
+
+      <div class="actions" id="actionsDone" hidden>
+        <button type="button" class="act act-primary" id="reportBtn" data-i18n="reportBtn"></button>
+        <button type="button" class="act act-quiet" id="againBtn" data-i18n="againBtn"></button>
+        <p class="hint" id="reportNote" data-i18n="reportNote"></p>
+      </div>
+    </section>
+
+    <section class="sheet">
+      <div class="block">
+        <h2 data-i18n="heardTitle"></h2>
+        <div class="transcript" id="transcript"><p class="empty" data-i18n="heardEmpty"></p></div>
+      </div>
+
+      <div class="block" id="whyBlock" hidden>
+        <h2 data-i18n="whyTitle"></h2>
+        <p class="explain" id="explain"></p>
+        <ul class="tactics" id="tactics"></ul>
+      </div>
+
+      <div class="block" id="numBlock" hidden>
+        <h2 data-i18n="numTitle"></h2>
+        <ul class="numbers" id="numbers"></ul>
+      </div>
+
+      <details class="block settings" id="settings">
+        <summary data-i18n="setTitle"></summary>
+
+        <fieldset>
+          <legend data-i18n="modeLegend"></legend>
+          <label class="choice"><input type="radio" name="mode" value="demo" checked> <span data-i18n="modeDemo"></span></label>
+          <label class="choice"><input type="radio" name="mode" value="browser"> <span data-i18n="modeBrowser"></span></label>
+          <label class="choice"><input type="radio" name="mode" value="gemini"> <span data-i18n="modeGemini"></span></label>
+        </fieldset>
+
+        <label class="field" id="scenarioField"><span data-i18n="demoPick"></span>
+          <select id="scenario"></select>
+        </label>
+        <label class="choice"><input type="checkbox" id="speakCaller" checked> <span data-i18n="speakCaller"></span></label>
+        <label class="choice"><input type="checkbox" id="voiceWarn" checked> <span data-i18n="voiceWarn"></span></label>
+        <label class="field"><span data-i18n="familyNum"></span>
+          <input id="family" type="tel" inputmode="tel" placeholder="6012XXXXXXX" autocomplete="tel">
+        </label>
+      </details>
+
+      <p class="foot">
+        <a href="/dashboard" data-i18n="dashLink"></a>
+        <span class="foot-note" data-i18n="disclaimer"></span>
+      </p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -6,6 +6,8 @@ Built for [Next Byte Hacks V5](https://next-byte-hacks-v5.devpost.com/) (October
 
 ![Scam warning on desktop](docs/screenshots/3-scam-warning.png)
 
+**Demo video (2:57):** [`docs/video/ScamShield_MY_demo.mp4`](docs/video/ScamShield_MY_demo.mp4). The voices in the video are synthesised (Microsoft Edge neural TTS); the app frames are real captures of the running prototype.
+
 ## Why
 
 - Malaysians lost **RM2.97 billion** to scams in 2025, up from RM1.57 billion in 2024, and only RM10.9 million has ever been returned to victims ([The Star, Jun 2026](https://www.thestar.com.my/news/nation/2026/06/24/billions-lost-to-scams-since-2022-but-only-rm109mil-returned-dewan-rakyat-told)).

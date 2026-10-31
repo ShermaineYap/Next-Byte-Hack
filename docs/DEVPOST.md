@@ -14,11 +14,11 @@
 
 ## Inspiration
 
-In November 2025 a 72-year-old woman in Kuching lost more than RM1.3 million to a man on the phone who called himself "Sergeant Tan". He told her that her IC had been used for money laundering, that there was a warrant for her arrest, and that she must not tell her children. Then he gave her a "safe account".
+In November 2025 a 72-year-old woman in Kuching lost more than RM1.3 million to a man on the phone who called himself "Sergeant Tan". Calls like this follow a familiar script: a fake police officer, an invented crime, a threat of arrest, an order to keep it secret, and finally a "safe account".
 
 Her story is not unusual. Malaysians lost RM2.97 billion to scams in 2025, almost double the year before, and only RM10.9 million has ever been returned. Phone scams alone accounted for over 5,097 cases and RM241 million last year.
 
-The warnings already exist: PDRM advisories, the Semak Mule portal, the 997 hotline. But nobody checks them *during* the call, while a confident voice is telling you to stay on the line and keep it secret. We wanted something that sits in the room with our grandparents at exactly that moment.
+The warnings already exist: PDRM advisories, the Semak Mule portal, the 997 hotline. But nobody checks them *during* the call, while a confident voice is telling you to stay on the line and keep it secret. We wanted something that sits in the room with older Malaysians at exactly that moment.
 
 ## What it does
 
